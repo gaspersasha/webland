@@ -1,0 +1,161 @@
+<!doctype html>
+<!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>			<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->	<html class="no-js" lang=""> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>BootStrap HTML5 CSS3 Theme</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="css/transitions.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/color.css">
+	<link rel="stylesheet" href="css/responsive.css">
+	<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+<body class="wb-home wb-homeone">
+	<!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+	<!--************************************
+			Wrapper Start
+	*************************************-->
+	<div id="wb-wrapper" class="wb-wrapper wb-haslayout">
+		<!--************************************
+				Header Start
+		*************************************-->
+		<header id="wb-header" class="wb-header wb-headerfixed wb-haslayout">
+			<div class="wb-logoarea">
+				<strong class="wb-logo"><a href="index.html"><img src="images/logo.png" alt="company logo here"></a></strong>
+				<form class="wb-formtheme wb-formsearch">
+					<fieldset>
+						<div class="form-group wb-inputwithicon">
+							<i class="fa fa-search"></i>
+							<input type="search" name="search" class="form-control" placeholder="Search">
+						</div>
+					</fieldset>
+				</form>
+			</div>
+			<div class="wb-adminbox">
+				<div class="wb-loginsignup">
+					<a href="javascript:void(0;" class="wb-btnlogin">Sign In</a>
+					<a href="javascript:void(0;" class="wb-btnsignup">Sign Up</a>
+				</div>
+				<div class="wb-admin">
+					<a class="wb-btnuploadrecipe" href="javascript:void(0);"><i class="fa fa-plus-circle"></i></a>
+				</div>
+			</div>
+		</header>
+		<!--************************************
+				Header End
+		*************************************-->
+		<!--************************************
+				Main Start
+		*************************************-->
+		<main id="wb-main" class="wb-main wb-haslayout wb-bglight wb-sectionspace">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-10 col-md-push-1 col-lg-10 col-lg-push-1">
+						<div class="wb-uploadrecipe">
+							<form class="wb-formtheme wb-formuploadrecipe">
+								<fieldset class="wb-dragdropimg">
+									<input type="file" name="upload" class="form-control" id="uploadfile">
+									<label for="uploadfile">Drag an image here or <span>browse</span> for an image to upload.</label>
+								</fieldset>
+								<fieldset class="wb-recipeingredients">
+									<div class="form-group">
+										<label>Title</label>
+										<input type="text" name="title" class="form-control" placeholder="">
+									</div>
+									<div class="form-group">
+										<label>Description (optional)</label>
+										<textarea placeholder=""></textarea>
+									</div>
+									<div class="form-group">
+										<label>Description (optional)</label>
+										<span class="wb-select">
+											<select>
+												<option>Low Sugar</option>
+												<option>Normal Sugar</option>
+												<option>High Sugar</option>
+												<option>Brown Sugar</option>
+											</select>
+										</span>
+									</div>
+									<div class="form-group wb-blendsetting">
+										<label>Blending settting</label>
+										<div class="wb-selectholder">
+											<span class="wb-select">
+												<select>
+													<option>Duration</option>
+													<option>Ten Minutes</option>
+													<option>Twenty Minutes</option>
+													<option>Twentyfive Minutes</option>
+												</select>
+											</span>
+											<span class="wb-select">
+												<select>
+													<option>Speed</option>
+													<option>100</option>
+													<option>200</option>
+													<option>250</option>
+												</select>
+											</span>
+										</div>
+									</div>
+									<div class="wb-addingredientsholder">
+										<div class="form-group wb-addingredients">
+											<label>Add ingredient:</label>
+											<input type="text" name="addingredients" class="form-control" placeholder="Strawberries">
+										</div>
+										<div class="form-group wb-amount">
+											<label>Amount:</label>
+											<span class="wb-select">
+												<select>
+													<option>100g.</option>
+													<option>120g.</option>
+													<option>150g.</option>
+													<option>200g.</option>
+												</select>
+											</span>
+										</div>
+										<a href="javascript:void(0);" class="wb-btndel"><i class="fa fa-close"></i></a>
+									</div>
+									<div class="wb-btnaddingredearea">
+										<a class="wb-btnaddingred" href="javascript:void(0);"><i class="fa fa-plus-circle"></i>Add new ingredient</a>
+									</div>
+								</fieldset>
+							</form>
+						</div>
+						<div class="wb-uloaddone">
+							<a class="wb-btnrecipeupload" href="javascript:void(0);">Upload Recipe</a>
+							<a class="wb-btncancel" href="javascript:void(0);">cancel</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<!--************************************
+				Main End
+		*************************************-->
+	</div>
+	<!--************************************
+			Wrapper End
+	*************************************-->
+	<script src="js/vendor/jquery-library.js"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+	<script src="js/jquery-scrolltofixed.js"></script>
+	<script src="js/sticky-sidebar.min.js"></script>
+	<script src="js/isotope.pkgd.min.js"></script>
+	<script src="js/jquery.vide.min.js"></script>
+	<script src="js/appear.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

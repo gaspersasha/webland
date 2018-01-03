@@ -1,0 +1,87 @@
+/*=============================================
+			Theme Color
+=============================================*/
+a,
+p a,
+p a:hover,
+a:hover,
+a:focus,
+a:active,
+
+.wb-widgetcatagory ul li:hover a,
+.wb-tag,
+.wb-tag:hover,
+.wb-tag:hover i,
+.wb-chefname span,
+.wb-dragdropimg label span,
+.wb-btnedit,
+.wb-btnedit:hover,
+.wb-socialshare .wb-socialicons li a,
+.wb-socialshare .wb-socialicons li a i,
+.wb-socialsharevtwo .wb-socialicons li a,
+.wb-socialsharevtwo .wb-socialicons li a i{color: #848484;}
+
+.wb-widgetcatagory ul li.wb-active a{
+    color: #ff2c55;
+}
+/*=============================================
+			Theme Background Color
+=============================================*/
+.wb-btn:after,
+.wb-theme-tag,
+.wb-uploadnewimg label{background:#ff2c55;}
+/*=============================================
+			Theme Border Color
+=============================================*/
+.wb-theme-tag:after,
+.wb-theme-tag:before,
+input:focus,
+.select select:focus,
+.form-control:focus{border-color: #ff2c55;}
+
+
+/*=============================================
+			Theme Secondary Color
+=============================================*/
+/*=============================================
+			Theme Color
+=============================================*/
+a,
+p a,
+p a:hover,
+a:hover,
+a:focus,
+a:active,
+,
+.wb-btnaddingred i,
+.wb-blendingtimespeed li i
+
+
+{color: #5f5f5f;}
+
+.wb-btnlogin{
+    color: #49c183;
+}
+/*=============================================
+			Theme Background Color
+=============================================*/
+.wb-btn:after,
+.wb-theme-tag,
+.wb-btnsignup,
+.wb-btnuploadrecipe,
+.wb-btnrecipeupload,
+.wb-signinbtn,
+.wb-skillbar,
+.bt-skillbar
+
+
+
+{background:#49c183;}
+/*=============================================
+			Theme Border Color
+=============================================*/
+.wb-theme-tag:after,
+.wb-theme-tag:before,
+input:focus,
+.select select:focus,
+.form-control:focus{border-color: #49c183;}

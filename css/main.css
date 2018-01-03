@@ -1,0 +1,2396 @@
+/*
+ @Author: Company Name
+ @URL: http://companyname.com
+ This file contains the styling for the actual theme, this
+ is the file you need to edit to change the look of the
+ theme.
+ However we used Less script to make things easy to maintain, this is the compressed ourput, we recommend to edit the less files and then recombile the files and add the result here, if you don't like to use less you can edit this file here.
+ 
+ This files contents are outlined below.
+ 01.	Theme Reset Style
+ 02.	Global Elements
+ 03.	Menu
+ 04.	Social
+ 05.	Article
+ 06.	Posts
+ 07.	Responsive
+ 08.	Widgets
+ 09.	Flexslider
+ 10.	Grid
+*/
+
+/* =============================================
+			Theme Reset Style
+============================================= */
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700);
+* {
+	margin: 0px;
+	padding: 0px;
+}
+html,
+body {
+	position: relative;
+	height: 100%;
+}
+body {
+	color: #535353;
+	background: #fff;
+	font:400 14px/22px 'Source Sans Pro', Arial, Helvetica, sans-serif;
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+	color: #000;
+	margin: 0 0 8px;
+	font-weight: 400;
+	line-height: 1.5;
+	font-style: normal;
+	text-transform:capitalize;;
+	font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+}
+h1 { font-size: 48px;}
+h2 { font-size: 36px;}
+h3 { font-size: 24px;}
+h4 { font-size: 18px;}
+h5 { font-size: 16px;}
+h6 { font-size: 14px;}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a { color: #000;}
+p a {}
+p a:hover {text-decoration:underline;}
+p {
+	letter-spacing: normal;
+	line-height: 20px;
+	margin: 0 0 20px;
+}
+a {text-decoration: none;}
+a:hover, a:focus, a:active {
+	outline: none;
+	text-decoration: none;
+}
+ul { margin: 0; }
+figure {
+	margin-bottom: 6px;
+	position: relative;
+}
+img {
+	height: auto;
+	max-width: 100%;
+}
+strong { color: #414141; }
+iframe {
+	border: none;
+	float: left;
+	width: 100%;
+}
+.wp-caption,
+.wp-caption-text,
+.gallery-caption,
+.bypostauthor {}
+.wp-caption.alignleft,
+.wp-caption.alignnone { width: 100%; }
+button { border: none; }
+textarea,
+select,
+.wb-select select,
+.form-control,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+	border: 0;
+	color: #000;
+	outline: none;
+	height: 45px;
+	font-size: 16px;
+	box-shadow: none;
+	line-height: 20px;
+	background:#f8f8f8;
+	padding: 10px 20px;
+	border-radius: 100px;
+	display: inline-block;
+	vertical-align: middle;
+	box-shadow: inset 0 1px 2px 0 rgba(213,213,213,0.5);
+	text-transform: capitalize;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.form-group{ margin:0 0 20px;}
+.form-control::-moz-placeholder{
+	text-transform: capitalize;
+	color: #999;
+}
+.form-control:focus::-moz-placeholder,
+input:focus,
+.select select:focus,
+.form-control:focus{
+	color: #000;
+	border-color: #000;
+	box-shadow:none !important;
+}
+/*======================
+		 Select 		
+======================*/
+.wb-select{
+	width: 100%;
+	float:left;
+	color:#ddd;
+	position: relative;
+	text-transform:uppercase;
+}
+.wb-select:after{
+	content: '\f107';
+	top: 50%;
+	right: 23px;
+	z-index: 2;
+	width: 13px;
+	color: #ddd;
+	display: block;
+	font-size: 22px;
+	margin-top: -5px;
+	line-height: 10px;
+	position: absolute;
+	text-align: center;
+	font-family: 'FontAwesome';
+}
+.wb-select select {
+	width: 100%;
+	z-index: 1;
+	color:#ddd;
+	height:50px;
+	padding:15px;
+	line-height:20px;
+	position: relative;
+	text-transform:uppercase;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+.wb-select select option{color:#ddd;}
+/*======================
+		CheckBox		
+======================*/
+.wb-radio,
+.wb-radio label,
+.wb-checkbox,
+.wb-checkbox label{
+	width: 100%;
+	float: left;
+	margin:0;
+	position: relative;
+}
+.wb-radio label,
+.wb-checkbox label{
+	cursor:pointer;
+	display:block;
+	padding:0 0 0 20px;
+}
+.wb-radio input[type=radio],
+.wb-checkbox input[type=checkbox] { display:none; }
+.wb-radio input[type=radio] + label:before,
+.wb-checkbox input[type=checkbox] + label:before {
+	top: 4px;
+	left: 0;
+	color: #373542;
+	font-size: 14px;
+	line-height: 14px;
+	content: "\f096";
+	position: absolute;
+	font-family: 'FontAwesome';
+}
+.wb-radio input[type=radio] + label:before{ content:'';}
+.wb-radio input[type=radio]:checked + label:before,
+.wb-checkbox input[type=checkbox]:checked + label:before {content:'\f046';}
+label {
+	color: #414141;
+	display: block;
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+form p {
+	float: left;
+	position: relative;
+	width: 100%;
+}
+form p span i {
+	color: #474747;
+	left: 16px;
+	position: absolute;
+	top: 13px;
+}
+option { padding: 5px 15px; }
+li {
+	line-height: 28px;
+	list-style: disc inside none;
+}
+ul ul { margin-left: 20px; }
+ol {
+	float: none;
+	list-style: decimal;
+	padding-left: 15px;
+}
+ol ol { margin-left: 20px; }
+ol li {
+	list-style: decimal;
+	width: 100%;
+}
+table {
+	background-color: transparent;
+	max-width: 100%;
+}
+th { text-align: left; }
+table {
+	margin-bottom: 15px;
+	width: 100%;
+}
+table > thead > tr > th,
+table > tbody > tr > th,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td,
+table > tfoot > tr > td {
+	border-top: 1px solid #d2d2d2;
+	border: 1px solid #d2d2d2;
+	line-height: 2.5;
+	padding-left: 3px;
+	text-align: center;
+	vertical-align: top;
+}
+table thead tr th {
+	border-top: 1px solid #d2d2d2;
+	text-align: center;
+	text-transform: capitalize;
+}
+.table > caption + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > th,
+.table > thead:first-child > tr:first-child > th,
+.table > caption + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > td,
+.table > thead:first-child > tr:first-child > td { border-top: 1px solid #d2d2d2; }
+table > thead > tr > th {
+	border-bottom: 2px solid #d2d2d2;
+	vertical-align: bottom;
+}
+table > caption + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > th,
+table > thead:first-child > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > td { border-bottom: 0; }
+table > tbody + tbody { border-top: 2px solid #d2d2d2; }
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td { padding: 6px 10px; }
+p ins { color: #999; }
+dl dd { margin-left: 20px; }
+address { font-style: italic; }
+/*==============================================
+			Global Elements						
+==============================================*/
+.wb-haslayout{
+	width:100%;
+	float:left;
+}
+.wb-sectionspace{padding: 60px 0;}
+
+.wb-locationmap{
+	width: 100%;
+	float: left;
+	height: 500px;
+}
+.wb-btn-sm{
+	padding: 0 20px;
+	line-height: 30px;
+}
+.wb-btn{
+	color: #fff;
+	padding: 0 50px;
+	position:relative;
+	text-align:center;
+	background: #373542;
+	display: inline-block;
+	vertical-align: middle;
+	text-transform: uppercase;
+	font:400 14px/50px 'Lora', Arial, Helvetica, sans-serif;
+}
+.wb-btn:hover{color:#373542;}
+.wb-btn-lg{ width: 100%;}
+.wb-socialicons{
+	list-style: none;
+	text-align:center;
+	line-height: 30px;
+}
+.wb-socialicons:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+.wb-socialicons li{
+	float: left;
+	padding: 0 4px;
+	line-height: inherit;
+	list-style-type: none;
+}
+.wb-socialicons li a{
+	width:30px;
+	height:30px;
+	color: #fff;
+	display:block;
+	background:#000;
+	overflow:hidden;
+	line-height: 30px;
+	position:relative;
+	text-align: center;
+	border-radius: 30px;
+	text-transform:capitalize;
+}
+.wb-inputwithicon.wb-facebook .wb-icon,
+.wb-checkbox.wb-facebook,
+li.wb-facebook a{background:#3b5999;}
+.wb-inputwithicon.wb-twitter .wb-icon,
+.wb-checkbox.wb-twitter,
+li.wb-twitter a{background:#55acee;}
+.wb-inputwithicon.wb-linkedin .wb-icon,
+.wb-checkbox.wb-linkedin,
+li.wb-linkedin a{background:#0077B5;}
+.wb-inputwithicon.wb-skype .wb-icon,
+.wb-checkbox.wb-skype,
+li.wb-skype a{background:#00aff0;}
+.wb-checkbox.wb-dropbox,
+li.wb-dropbox a{background:#007ee5;}
+.wb-checkbox.wb-vimeo,
+li.wb-vimeo a{background:#1ab7ea;}
+.wb-checkbox.wb-tumblr,
+li.wb-tumblr a{background:#34465d;}
+.wb-checkbox.wb-yahoo,
+li.wb-yahoo a{background:#410093;}
+.wb-inputwithicon.wb-googleplus .wb-icon,
+.wb-checkbox.wb-googleplus,
+li.wb-googleplus a{background:#dd4b39;}
+.wb-inputwithicon.wb-pinterestp .wb-icon,
+.wb-checkbox.wb-pinterestp,
+li.wb-pinterestp a{background:#bd081c;}
+.wb-checkbox.wb-youtube,
+li.wb-youtube a{background:#cd201f;}
+.wb-checkbox.wb-stumbleupon,
+li.wb-stumbleupon a{background:#eb4924;}
+.wb-checkbox.wb-reddit,
+li.wb-reddit a{background:#ff5700;}
+.wb-checkbox.wb-quora,
+li.wb-quora a{background:#b92b27;}
+.wb-checkbox.wb-yelp,
+li.wb-yelp a{background:#af0606;}
+.wb-checkbox.wb-soundcloud,
+li.wb-soundcloud a{background:#ff3300;}
+.wb-checkbox.wb-whatsapp,
+li.wb-whatsapp a{background:#25d366;}
+.wb-checkbox.wb-wechat,
+li.wb-wechat a{background:#09b83e;}
+.wb-checkbox.wb-instagram,
+li.wb-instagram a{background:#e4405f;}
+.wb-checkbox.wb-dribbble,
+li.wb-dribbble a{background:#ea4c89;}
+.wb-checkbox.wb-flickr,
+li.wb-flickr a{background:#ff0084;}
+.wb-checkbox.wb-rss,
+li.wb-rss a{background:#ff6600;}
+.wb-socialicons li a i{
+	color: #fff;
+	width: 30px;
+	display:block;
+	font-size:13px;
+	line-height:30px;
+	text-align:center;
+}
+.wb-socialicons li a:hover{color: #fff;}
+.wb-roundicontext .wb-usericonholder{
+	width: 150px;
+	display: block;
+	overflow: hidden;
+	font-style: normal;
+}
+.wb-roundicontext i,
+.wb-roundicontext span{
+	float:left;
+	font-size: 13px;
+	line-height: 30px;
+}
+.wb-roundicontext:focus,
+.wb-roundicontext:hover{color: #fff;}
+.wb-rss .wb-roundicontext:hover{width: 63px;}
+.wb-yelp .wb-roundicontext:hover,
+.wb-flickr .wb-roundicontext:hover{width: 70px;}
+.wb-skype .wb-roundicontext:hover{width: 78px;}
+.wb-vimeo .wb-roundicontext:hover,
+.wb-yahoo .wb-roundicontext:hover,
+.wb-reddit .wb-roundicontext:hover,
+.wb-quora .wb-roundicontext:hover{width: 80px;}
+.wb-googleplus .wb-roundicontext:hover{width: 85px;}
+.wb-tumblr .wb-roundicontext:hover{width: 86px;}
+.wb-linkedin .wb-roundicontext:hover{width: 87px;}
+.wb-wechat .wb-roundicontext:hover{width: 90px;}
+.wb-twitter .wb-roundicontext:hover,
+.wb-dropbox .wb-roundicontext:hover{width: 94px;}
+.wb-youtube .wb-roundicontext:hover,
+.wb-dribbble .wb-roundicontext:hover{width: 96px;}
+.wb-facebook .wb-roundicontext:hover{width: 100px;}
+.wb-instagram .wb-roundicontext:hover{width: 104px;}
+.wb-whatsapp .wb-roundicontext:hover{width: 106px;}
+.wb-soundcloud .wb-roundicontext:hover{width: 116px;}
+.wb-pinterestp .wb-roundicontext:hover,
+.wb-stumbleupon .wb-roundicontext:hover{width: 126px;}
+.wb-verticalmiddle{
+	margin: 0 -1px;
+	float: none !important;
+	display: inline-block;
+	vertical-align: middle;
+}
+.wb-description {
+	width: 100%;
+	float: left;
+}
+.wb-bglight{ background:rgba(255, 255, 255, 0.99);}
+.wb-bgdark{ background:#373542;}
+.wb-stars span,
+.wb-stars{
+	width:100px;
+	height: 16px;
+	float: left;
+	line-height:16px;
+	position:relative;
+}
+.wb-stars span:after,
+.wb-stars:before {
+	top: 0;
+	left: 0;
+	font-size: 16px;
+	line-height: 16px;
+	position: absolute;
+	letter-spacing: 4px;
+	font-family: 'FontAwesome';
+	color: rgba(218, 218, 218, .8);
+	content: '\f005 \f005 \f005 \f005 \f005';
+}
+.wb-stars span {
+	width:75%;
+	overflow: hidden;
+}
+.wb-stars span:after {color:#f7c026;}
+.row.no-gutters{
+	margin-right: 0;
+	margin-left: 0;
+}
+.no-gutters > [class^="col-"],
+.no-gutters > [class*="col-"],
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*="col-"]{
+	padding-right: 0;
+	padding-left: 0;
+}
+.wb-formtheme{
+	margin:0;
+	width: 100%;
+	float: left;
+}
+.wb-formtheme fieldset{
+	margin: 0;
+	border: 0;
+	padding: 0;
+	width: 100%;
+	float: left;
+}
+.wb-formtheme .form-group{
+	width:100%;
+	float:left;
+	margin:0 0 10px;
+	position: relative;
+}
+.wb-inputwithicon .form-control{position: relative;}
+.wb-inputwithicon.form-group i{
+	top: 0;
+	left: 15px;
+	z-index: 2;
+	width: 16px;
+	height:16px;
+	color: #9A9A9A;
+	font-size: 16px;
+	line-height: 45px;
+	position: absolute;
+}
+
+
+
+
+/*==============================================
+			Theme Pagination					
+==============================================*/
+.wb-pagination{
+	width:100%;
+	float: left;
+	font-size:14px;
+	line-height:25px;
+	font:14px/25px 'Lora', Arial, Helvetica, sans-serif;
+}
+.wb-pagination ul{
+	float:right;
+	margin:0;
+	padding:0;
+	list-style:none;
+	text-align: center;
+	line-height: inherit;
+}
+.wb-pagination ul li{
+	float:left;
+	margin:0 6px;
+	line-height: inherit;
+	list-style-type:none;
+}
+.wb-pagination ul li.wb-prevpage{ margin-left:0;}
+.wb-pagination ul li.wb-nextpage{ margin-right:0;}
+.wb-pagination ul li a{
+	width:20px;
+	display:block;
+	color:#373542;
+	text-align:center;
+	position:relative;
+	line-height: inherit;
+}
+.wb-pagination ul li.wb-nextpage a,
+.wb-pagination ul li.wb-prevpage a{
+	width:auto;
+	font-size: 20px;
+	overflow:hidden;
+	position:relative;
+}
+.wb-pagination ul li.wb-nextpage a{padding:0 0 0 25px;}
+.wb-pagination ul li.wb-prevpage a{padding:0 25px 0 0;}
+.wb-pagination ul li.wb-nextpage a:after,
+.wb-pagination ul li.wb-prevpage a:after{
+	top:50%;
+	opacity:0;
+	content:'';
+	width:15px;
+	height:1px;
+	background:#373542;
+	position:absolute;
+	visibility:hidden;
+}
+.wb-pagination ul li.wb-nextpage a:after{right:50px;}
+.wb-pagination ul li.wb-prevpage a:after{left:50px;}
+.wb-pagination ul li.wb-nextpage a:hover:after,
+.wb-pagination ul li.wb-prevpage a:hover:after{
+	opacity:1;
+	visibility:visible;
+}
+.wb-pagination ul li.wb-nextpage a:hover:after{right:2px;}
+.wb-pagination ul li.wb-prevpage a:hover:after{left:2px;}
+/*==============================================
+			Theme BreadCrumb					
+==============================================*/
+.wb-breadcrumb {
+	padding: 0;
+	margin:0;
+	color: #fff;
+	float: right;
+	list-style: none;
+	text-align: right;
+	text-transform: uppercase;
+	font:14px/44px 'Lora', Arial, Helvetica, sans-serif;
+}
+.wb-breadcrumb li{
+	width:auto;
+	list-style-type:none;
+	display: inline-block;
+	vertical-align: middle;
+	line-height:inherit;
+	padding:0 15px;
+	position:relative;
+}
+.wb-breadcrumb li:after{
+	content:'-';
+	position:absolute;
+	top:0;
+	left:-3px;
+}
+.wb-breadcrumb li:last-child{ padding: 0 0 0 15px;}
+.wb-breadcrumb li:first-child:after{display: none;}
+.wb-breadcrumb li a{
+	display:block;
+	color:#fff;
+}
+.wb-prev,
+.wb-next{
+	top:0;
+	right:0;
+	font-size:14px;
+	cursor:pointer;
+	position:absolute;
+}
+.wb-prev span,
+.wb-next span{
+	color:#373542;
+	display:block;
+	line-height:16px;
+	margin:0 14px 0 0;
+}
+.wb-prev{
+	top:-2px;
+	right:40px;
+	text-align:left;
+}
+.wb-next{
+	text-align:right;
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+.wb-prev span:after,
+.wb-next span:after{
+	content:'';
+	top:50%;
+	left:15px;
+	width:20px;
+	height:1px;
+	z-index:-1;
+	opacity:0;
+	background:#373542;
+	position:absolute;
+	visibility:hidden;
+}
+.wb-prev:hover span:after,
+.wb-next:hover span:after{
+	opacity:1;
+	visibility:visible;
+}
+.wb-prev:hover span:after,
+.wb-next:hover span:after{left:3px;}
+/*==============================================
+			Theme Style							
+==============================================*/
+.wb-home{}
+.wb-wrapper{}
+
+.wb-main{}
+.wb-footer{}
+.wb-content,
+.wb-twocolumns{
+	width: 100%;
+	float: left;
+}
+
+
+
+/*==============================================
+			Header								
+==============================================*/
+.wb-header{
+	width: 100%;
+    height: 70px;
+	float: left;
+	background: #fff;
+	padding: 10px 30px;
+	-webkit-box-shadow: 0 2px 27px 0 rgba(219,219,219,0.5);
+	box-shadow: 0 2px 27px 0 rgba(219,219,219,0.5);
+    
+}
+.wb-logoarea{float: left;}
+.wb-logo{
+	float: left;
+	padding: 16px 0;
+}
+.wb-logo a,
+.wb-logo a img{display: block;}
+.wb-logo a img{
+	width: 100%;
+	height: auto;
+}
+.wb-formsearch{
+    display: none;
+	width: auto;
+	margin: 0 0 0 30px;
+}
+.wb-formsearch .form-group{margin: 0;}
+.wb-formsearch .form-control{
+	width: 470px;
+	padding: 10px 20px 10px 40px;
+}
+.wb-adminbox{
+	float: right;
+	padding: 4px 0;
+}
+.wb-loginsignup{
+	width: 100%;
+	float: left;
+	padding: 2px 0;
+}
+.wb-btnlogin{
+	float: left;
+	color: #fff;
+	font-size: 16px;
+	line-height: 40px;
+}
+.wb-btnsignup{
+	float: left;
+	color: #fff;
+	padding: 0 50px;
+	font-size: 16px;
+	line-height: 40px;
+	margin: 0 0 0 20px;
+	border-radius: 100px;
+}
+.wb-btnsignup:hover{color: #fff;}
+.wb-admin,
+.wb-signedin .wb-loginsignup {display: none;}
+.wb-signedin .wb-admin{display: block;}
+.wb-admin{float: right;}
+.wb-btnuploadrecipe{
+	float: left;
+	color: #fff;
+	padding: 0 20px;
+	font-size: 14px;
+	line-height: 40px;
+	margin: 0 10px 0 0;
+	border-radius: 100px;
+}
+.wb-btnuploadrecipe:hover{color: #fff;}
+.wb-btnuploadrecipe i{
+	color: #fff;
+	margin: 0 10px 0 0;
+}
+.wb-admin .wb-like{
+	opacity: 1;
+	float: left;
+	position: static;
+	background: #feeef2;
+	visibility: visible;
+	display: inline-block;
+}
+.wb-adminsigned{
+	float: left;
+	padding: 5px 0;
+	margin: 0 0 0 10px;
+}
+.wb-adminsigned a{display: inline-block;}
+.wb-adminsigned a img{
+	float: left;
+	width: auto;
+	height: auto;
+	display: block;
+	border-radius: 50%;
+}
+.wb-adminsigned a span{
+	color: #4a4a4a;
+	font-weight: 600;
+	margin: 0 0 0 10px;
+	position: relative;
+	display: inline-block;
+	padding: 5px 22px 3px 0;
+}
+.wb-adminsigned a span:before{
+	right: 0;
+	top: 12px;
+	color: #9f9f9f;
+	content: '\f107';
+	font-size: 12px;
+	line-height: 12px;
+	position: absolute;
+	font-family: 'FontAwesome';
+}
+
+.facebook-logo{
+
+    position: absolute;
+    right: 0px;
+    top: 570px;
+    width: 69px;
+	height: 60px;
+    padding-top: 18px;
+    text-align: center;
+    
+	border-radius: 4px;
+	background-color: #39579a;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.facebook-logo-IMPORTANT{
+    z-index: 1000;
+    position: fixed!important;
+    top: 80px!important;
+    
+}
+/*==============================================
+			Mask Style								
+==============================================*/
+
+.wb-mask{
+    width: 100%;
+	height: 440px;
+	background-color: #ffffff;
+    background-image: url(../images/Mask/27082997-l@2x.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 1px;
+    overflow: hidden;
+    
+}
+
+.wb-frontmask{
+    
+    background-color: black;
+    padding: 1px;
+    height: 200%;
+    width: 102%;
+    margin-top: -1px;
+    margin-left: -10px;
+    background-color: rgba(0, 0, 0, 0.35);
+    
+   
+}
+
+.wb-masktool{
+    width: 50vw;
+    margin: auto;
+}
+
+.wb-masktitle{
+    height: 45px;
+    margin-top: 132px;
+}
+.wb-masktitle h2{
+    font-family: "Source Sans Pro";
+	font-size: 38px;
+	font-weight: 600;
+	color: #ffffff;
+}
+
+.wb-masksearch{
+    margin-top: 30px;
+    height: 54px;
+    
+}
+
+.wb-masksearch .input-group{
+    height: 54px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding-top: 1px;
+}
+
+.wb-masksearch input{
+    border: none;
+    border-radius: 4px;
+    width: 99%;
+    box-shadow: inset 0 0px 0px 0 rgba(255, 255, 255, 0.5);
+    font-size: 18px;
+    font-family: "Source Sans Pro";
+    padding-top: 20px;
+    
+
+}
+
+.SearchIcon{
+    color:#fff;
+   
+}
+.SearchButton{
+   
+    width: 68px;
+    height: 50px;
+    background-color: #ff2c55;
+    border-radius:4px;
+    margin: 3px 4px;
+}
+.SearchButton:hover{
+    background-color:#ED1C24;
+}
+
+.SearchBar{
+
+}
+
+
+.wb-tags .small-remove{
+    
+    width: 8px;
+    height: 8px;
+    background-image: url(../images/small-remove.svg);
+    padding-top: 4px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    
+}
+
+/*==============================================
+			Recipe Style								
+==============================================*/
+.wb-recipegallery{
+	width: 100%;
+	float: left;
+	margin: -10px 0;
+}
+.wb-recipepost{
+	float: left;
+	padding: 10px;
+	width: 33.33%;
+	
+}
+.wb-contentholder{
+	width: 100%;
+	float: left;
+	overflow: hidden;
+	background: #fff;
+	position: relative;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 2px 4px 0 rgba(219,219,219,0.5);
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+.wb-recipeimg{
+	margin: 0;
+	width: 100%;
+	float: left;
+	position: relative;
+	border-radius: 4px;
+}
+.wb-recipeimg:before{
+	left: 0;
+	bottom: 0;
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background:
+		-moz-linear-gradient(top,
+		rgba(0,0,0,0) 22%,
+		rgba(0,0,0,0.57) 100%);
+	background:
+		-webkit-linear-gradient(top,
+		rgba(0,0,0,0) 22%,
+		rgba(0,0,0,0.57) 100%);
+	background:
+		linear-gradient(to bottom,
+		rgba(0,0,0,0) 22%,
+		rgba(0,0,0,0.57) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#91000000',GradientType=0 );
+}
+.wb-recipeimg > img{
+	width: 100%;
+	height: auto;
+	display: block;
+
+}
+.wb-recipeimg figcaption{
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 10px;
+	position: absolute;
+}
+.wb-blogerdeatil{
+	width: 100%;
+	float: left;
+}
+.wb-blogerdeatil img{
+	float: left;
+	margin: 5px 0;
+	display: block;
+	border-radius: 50%;
+}
+.wb-blogercontent{
+	overflow: hidden;
+	padding: 0 0 0 15px;
+}
+.wb-blogercontent h2{
+	margin: 0;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	letter-spacing: 1px;
+}
+.wb-blogercontent h2 a{color: inherit;}
+.wb-blogercontent > a{
+	color: #fff;
+	display: block;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 15px;
+}
+.wb-recipedetail{
+	width: 100%;
+	float: left;
+	text-align: left;
+	background: #fff;
+	padding: 16px 6px 10px 21px;
+}
+.wb-recipename{
+	width: 100%;
+	float: left;
+}
+.wb-contentholder .wb-recipedetail .wb-recipename h3{
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 24px;
+}
+.wb-recipename h3 a{display: block;;}
+.wb-postmatadata{
+	width: 100%;
+	float: left;
+	list-style: none;
+	padding: 0 0 8px;
+}
+.wb-postmatadata li{
+	float: left;
+	line-height: normal;
+	list-style-type: none;
+}
+.wb-totalreviews{
+	float: left;
+	color: #7B7B7B;
+	font-style: normal;
+}
+.wb-recipedetail .wb-description p{
+	margin: 0;
+    color: #949494;
+    padding-bottom: 6px;
+}
+.wb-like{
+	top: 10px;
+	opacity: 0;
+	right: 10px;
+	width: 40px;
+	height: 40px;
+	color: #B5B5B5;
+	background: #fff;
+	line-height: 40px;
+	border-radius: 50%;
+	visibility: hidden;
+	position: absolute;
+	text-align: center;
+}
+.wb-like.wb-liked{color: #f52159;}
+.wb-recipepost:hover .wb-recipeimg .wb-like{
+	opacity: 1;
+	visibility: visible;
+}
+.wb-recipebox{
+	width: 100%;
+	float: left;
+}
+
+.wb-stats{
+
+    width: 100%;
+
+}
+
+.wb-stats ul{
+	list-style: none;
+	padding: 0 0 8px;
+    margin-top: 10px;
+}
+.wb-stats li{
+    display: inline;
+	float: left;
+	list-style-type: none;
+}
+.wb-stats .ico{
+    margin-top: 9px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 5px;
+}
+
+.wb-stats .iconheart{
+    
+    width: 13px;
+    height: 14px;
+    background-image: url(../images/heart-2.svg);
+}
+
+.wb-stats .iconeye{
+    width: 15px;
+    height: 13px;
+    
+    background-image: url(../images/eye-17.svg);
+    background-position: 0% 40%;
+}
+
+.wb-stats .wb-amount{
+    color: #c9c9c9;
+    font-size: 12px;
+    margin-right: 10px;
+    padding-top:1px;
+}
+/*==============================================
+			Profile Page Style								
+==============================================*/
+.wb-recipegallery.wb-filtermasonryvtwo {
+	float: none;
+	clear: both;
+	width: auto;
+	margin: 0 -10px;
+	overflow: hidden;
+}
+.wb-filtermasonryvtwo .wb-recipepost{width: 25%;}
+.wb-profilebanner{
+	width: 100%;
+	float: left;
+	padding: 25px 0;
+	background: #fff;
+	box-shadow: 0 2px 4px 0 rgba(231,231,231,0.5);
+}
+.wb-profilecontent{float: left;}
+.wb-profileimg{
+	margin: 0;
+	float: left;
+	width: 100px;
+	overflow: hidden;
+	border-radius: 50%;
+}
+.wb-profileimg img{
+	width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 50%;
+}
+.wb-profileinfo{
+	width: 60%;
+	float: left;
+	overflow: hidden;
+	padding: 0 0 0 20px;
+}
+.wb-chefname{
+	width: 100%;
+	float: left;
+	padding: 0 0 15px;
+}
+.wb-chefname h3{
+	color: #444;
+	float: left;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 4px 20px 4px 0;
+}
+.wb-chefname span{
+	width: 76px;
+	padding: 6px 10px;
+	font-family: 12px;
+	line-height: 27px;
+	background: #F8EDEF;
+	border-radius: 100px;
+}
+.wb-chefname span em{
+	font-weight: bold;
+	font-style: normal;
+}
+.wb-profilecontentholder{
+	overflow: hidden;
+	position: relative;
+	padding: 0 0 0 75px;
+}
+.wb-profilecontentholder img{
+	top: 0;
+	left: 0;
+	position: absolute;
+}
+.wb-profileinfo .wb-description p{margin: 0 0 10px;}
+.wb-profilecontentholder .wb-website{
+	float: left;
+	color: #b4b4b4;
+	font-size: 12px;
+	line-height: 12px;
+	padding: 0 5px 0 0;
+}
+.wb-profilecontentholder .wb-socialicons{float: left;}
+.wb-profilecontentholder .wb-socialicons li a{
+	width: 16px;
+	height: 16px;
+	color: #808080;
+	background: none;
+}
+.wb-profilecontentholder .wb-socialicons li a i{
+	width: 16px;
+	color: #808080;
+	line-height: normal;
+}
+.wb-profilecontentholder .wb-socialicons li:hover a,
+.wb-profilecontentholder .wb-socialicons li:hover a i{color: #444;}
+.wb-follow{
+	float: right;
+	text-align: right;
+}
+.wb-followers{
+	display: block;
+	color: #7F7F7F;
+	font-size: 14px;
+	margin: 0 0 20px;
+	line-height: 18px;
+}
+.wb-followers em{
+	color: #444;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 23px;
+	font-style: normal;
+	margin: 0 0 0 10px;
+}
+.wb-btnfollorw{
+	display: block;
+	padding: 0 45px;
+	font-weight: 600;
+	line-height: 40px;
+	border-radius: 60px;
+	background: #ECF9F2;
+}
+.wb-btneditprofile{
+	color: #797979;
+	display: block;
+	padding: 0 45px;
+	font-weight: 600;
+	line-height: 40px;
+	border-radius: 60px;
+	background: #f4f4f4;
+}
+.wb-btneditprofile:hover{color: #797979;}
+.wb-hover{
+	height: 427px;
+	padding: 0 20px;
+	background: #fff; 
+	text-align: center;
+	-webkit-box-alt: center;
+	-ms-flex-alt: center;
+	alt-items: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	justify-content: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+.wb-hover a{display: block;}
+.wb-hover a i{
+	font-size: 32px;
+	padding: 0 0 5px;
+	line-height: 32px;
+}
+.wb-hover a span{
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+}
+.wb-profilecontentholdervtwo{
+	padding: 0;
+	float: left;
+}
+.wb-profilecontentholdervtwo img{display: none;}
+/*==============================================
+			Upload Recipe Style								
+==============================================*/
+.wb-uploadrecipe{
+	width: 100%;
+	float: left;
+	background: #fff;
+	padding: 25px 20px;
+	border-radius: 6px;
+	box-shadow: 0 2px 4px 0 rgba(219,219,219,0.5);
+}
+.wb-formuploadrecipe .wb-dragdropimg{
+	width: 35%;
+	float: left;
+	border-radius: 8px;
+	background: #F8F8F8;
+	box-shadow: inset 0 1px 2px 0 rgba(213,213,213,0.5);
+}
+.wb-dragdropimg input{display: none;}
+.wb-dragdropimg label{
+	margin: 0;
+	color: #7E7E7E;
+	cursor: pointer;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 23px;
+	text-align: center;
+	padding: 135px 20px;
+}
+.wb-formtheme .wb-recipeingredients{
+	width: 65%;
+	float: left;
+	padding: 0 0 0 30px;
+}
+.wb-formtheme .wb-recipeingredients .form-group{margin: 0 0 20px;}
+.wb-formtheme .wb-recipeingredients .form-group label{
+	color: #7F7F7F;
+	font-size: 16px;
+	line-height: 20px;
+}
+.wb-formtheme .wb-recipeingredients .form-group .form-control{
+	border:0;
+	height: 45px;
+	box-shadow: inset 0 1px 2px 0 rgba(213,213,213,0.5);
+}
+.wb-formtheme .wb-recipeingredients .form-group textarea{
+	border: 0;
+	width: 100%;
+	resize: none;
+	height: 100px;
+	border-radius: 12px;
+	box-shadow: inset 0 1px 2px 0 rgba(213,213,213,0.5);
+}
+.wb-formtheme .wb-recipeingredients .form-group .wb-select select{
+	border:0;
+	height: 45px;
+	font-size: 14px;
+	padding: 10px 15px;
+    text-transform: capitalize;
+}
+.wb-formtheme .wb-recipeingredients .form-group .wb-select select,
+.wb-formtheme .wb-recipeingredients .form-group .wb-select select option{color: #979797;}
+.wb-formtheme .wb-recipeingredients .form-group .wb-select:after{
+	width: 17px;
+	color: #9f9f9f;
+}
+.wb-selectholder{
+	width: auto;
+	float: none;
+	clear: both;
+	margin: 0 -10px;
+	overflow: hidden;
+}
+.wb-formtheme .wb-recipeingredients .form-group.wb-blendsetting .wb-select{
+	width: 50%;
+	padding: 0 10px
+}
+.wb-formtheme .wb-recipeingredients .form-group.wb-addingredients{width: 60%;}
+.wb-formtheme .wb-recipeingredients .form-group.wb-amount{
+	width: 20%;
+	margin: 0 0 0 20px;
+}
+.wb-addingredientsholder{
+	width: 100%;
+	float: left;
+	position: relative;
+}
+.wb-formtheme .wb-addingredientsholder .form-group{margin: 0;}
+.wb-btndel{
+	right: 0;
+	bottom: 0;
+	width: 47px;
+	height: 40px;
+	color: #7e7e7e;
+	font-size: 14px;
+	line-height: 40px;
+	position: absolute;
+	text-align: center;
+	background: #f7f7f7;
+	border-radius: 60px;
+}
+.wb-btnaddingredearea{
+	width: 100%;
+	float: left;
+	padding: 30px 0 0;
+	text-align: center;
+}
+.wb-btnaddingred{
+	color: #7F7F7F;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	display: inline-block;
+}
+.wb-btnaddingred i{margin: 0 10px 0 0;}
+.wb-uloaddone{
+	width: 100%;
+	float: left;
+	padding: 50px 0 0;
+	text-align: center;
+}
+.wb-btnrecipeupload{
+	color: #fff;
+	font-size: 18px;
+	padding: 0 65px;
+	font-weight: 600;
+	line-height: 50px;
+	border-radius: 60px;
+	display: inline-block;;
+}
+.wb-btnrecipeupload:hover{color: #fff;}
+.wb-btncancel{
+	clear: both;
+	width: 241px;
+	display: block;
+	color: #7F7F7F;
+	font-size: 14px;
+	font-weight: 600;
+	margin: 15px auto;
+	line-height: 18px;
+	text-transform: capitalize;
+}
+/*==============================================
+			Log In Page Style								
+==============================================*/
+.wb-feedloging{
+	width: 100%;
+	float: left;
+}
+.wb-logingimg{
+	margin: 0;
+	width: 100%;
+	float: left;
+	min-height: 920px;
+}
+.wb-logingimg figcaption{
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background: #fff;
+	position: absolute;
+	-webkit-box-alt: center;
+	-ms-flex-alt: center;
+	alt-items: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	justify-content: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+.wb-feedloging .wb-logo{
+	width: 192px;
+	margin: 0 auto;
+	padding: 0 0 40px;
+	text-align: center;
+}
+.wb-feedloging .wb-logo img{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.wb-formlogin{
+	max-width: 310px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 0 170px;
+}
+.wb-formlogin .form-group{margin: 0 0 20px;}
+.wb-signinbtn{
+	width: 100%;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 45px;
+	text-align: center;
+	border-radius: 100px;
+}
+.wb-btnforgotpassword{
+	color: #7F7F7F;
+	display: block;
+	font-size: 16px;
+	line-height: 20px;
+	text-align: center;
+}
+.wb-or{
+	text-align: center;
+	position: relative;
+}
+.wb-or:after{
+	left: 0;
+	top: 50%;
+	content: '';
+	width: 100%;
+	height:1px;
+	position: absolute;
+	background: #ececec;
+}
+.wb-or span{
+	z-index: 2;
+	color: #7F7F7F;
+	font-size: 16px;
+	padding: 0 20px;
+	background: #fff;
+	line-height: 20px;
+	position: relative;
+	display: inline-block;
+}
+.wb-signinbtn.wb-btnlogwith{background: #4B64A6;}
+.wb-signinbtn.wb-btnlogwith i{margin: 0 2px 0 0;}
+.wb-donthaveaccount{
+	color: #7F7F7F;
+	display: block;
+	font-size: 16px;
+	line-height: 20px;
+	text-align: center;
+}
+.wb-donthaveaccount a{color: #000;}
+/*==============================================
+			Register Style								
+==============================================*/
+.wb-mobiletools{
+    display: none;
+}
+
+.wb-formregister{
+	max-width: 310px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 0 170px;
+}
+.wb-formregister .form-group{margin: 0 0 20px;}
+.wb-formregister .form-group label{
+	color: #7F7F7F;
+	font-size: 16px;
+	line-height: 20px;
+}
+/*==============================================
+			Change Password Style						
+==============================================*/
+.wb-changepassword{
+	width: 100%;
+	float: left;
+	padding: 30px;
+	background: #fff;
+	border-radius: 6px;
+	box-shadow: 0 2px 4px 0 rgba(219,219,219,0.5);
+}
+.wb-changepassword h2{
+	color: #303030;
+	font-size: 24px;
+	font-weight: 600;
+	margin: 0 0 25px;
+	line-height: 20px;
+}
+.wb-formchangepaswsword .form-group{margin: 0 0 20px;}
+.wb-formchangepaswsword .form-group label{
+	color: #7F7F7F;
+	font-size: 16px;
+	line-height: 20px;
+}
+.wb-formchangepaswsword .form-group .wb-signinbtn{
+	width: auto;
+	padding: 0 35px;
+}
+.wb-sidedropdown {
+	width: 100%;
+	float: left;
+	height: 45px;
+	display: none;
+	color: #7F7F7F;
+	font-size: 18px;
+	background: #fff;
+	margin: 0 0 30px;
+	padding:  0 30px;
+	border-radius: 60px;
+	box-shadow: 0 1px 2px 0 rgba(184,184,184,0.5);
+}
+.wb-sidedropdown a{
+	display: block;
+	font-size: 18px;
+	line-height: 45px;
+	position: relative;
+	color: #7F7F7F !important;
+}
+.wb-sidedropdown > a:after{
+	right: 0;
+	top: 15px;
+	content: '\f107';
+	font-size: 20px;
+	line-height: 13px;
+	position: absolute;
+	font-family: 'FontAwesome';
+}
+.wb-sidenav{
+	border: 0;
+	width: 100vw;
+    right: -124px;
+	padding: 0 15px;
+	list-style: none;
+	position: absolute;
+	border-radius: 20px;
+}
+.wb-sidenav li{
+	width: 100%;
+	float: left;
+	padding: 10px 0;
+	line-height: normal;
+	list-style-type: none;
+}
+.wb-sidenav li a{
+	display: block;
+	font-size: 18px;
+}
+/*==============================================
+			Profile Settings Style								
+==============================================*/
+.wb-profilesettings{
+	width: 100%;
+	float: left;
+	padding: 30px;
+	background: #fff;
+	border-radius: 6px;
+	box-shadow: 0 2px 4px 0 rgba(219,219,219,0.5);
+}
+.wb-profilesettings h2{
+	color: #303030;
+	font-size: 24px;
+	font-weight: 600;
+	margin: 0 0 25px;
+	line-height: 30px;
+}
+.wb-formprofilesettings .form-group{margin: 0 0 20px;}
+.wb-uploadprofileimg figure{
+	margin: 0;
+	float: left;
+	width: 100px;
+	border-radius: 50%;
+}
+.wb-uploadprofileimg figure img{
+	width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 50%;
+}
+.wb-uploadnewimg{
+	overflow: hidden;
+	padding: 30px 0 30px 20px;
+}
+.wb-uploadnewimg input{display: none;}
+.wb-uploadnewimg label{
+	color: #fff;
+	float: left;
+	font-size: 14px;
+	padding: 0 20px;
+	cursor: pointer;
+	margin: 0 10px 0 0;
+	line-height: 40px;
+	background:#FF2C55;
+	border-radius: 100px;
+}
+.wb-uploadnewimg .wb-btndel{
+	float: left;
+	color: #9A9A9A;
+	position: static;
+	font-weight: normal;
+}
+.wb-formprofilesettings .form-group{margin: 0 0 25px;}
+.wb-formprofilesettings .wb-uploadprofileimg{padding: 0 0 30px;}
+.wb-profiledetail .wb-selectholder .form-group{
+	width: 50%;
+	padding: 0 10px;
+}
+.wb-formprofilesettings .form-group label{
+	color: #7F7F7F;
+    font-size: 16px;
+    line-height: 20px;
+}
+.wb-profiledetail .form-group textarea{
+	border:0;
+	width: 100%;
+	float: left;
+	resize: none;
+	height: 100px;
+	border-radius: 12px;
+	box-shadow: inset 0 1px 2px 0 rgba(213,213,213,0.5);
+}
+.wb-uploadprofileimg.wb-uploadbookcover figure,
+.wb-uploadprofileimg.wb-uploadbookcover figure img{border-radius: 0;}
+.wb-uploadprofileimg.wb-uploadbookcover .wb-uploadnewimg {padding: 45px 0 45px 20px;}
+.wb-formprofilesettings .wb-btnrecipeupload{
+	padding: 0 25px;
+	font-size: 14px;
+	line-height: 40px;
+}
+/*==============================================
+			Recipes Style								
+==============================================*/
+.wb-recipecs{
+	width: 100%;
+	float: left;
+	padding: 30px;
+	background: #fff;
+	border-radius: 6px;
+	box-shadow: 0 2px 4px 0 rgba(219,219,219,0.5);
+}
+.wb-recipecs h2{
+	color: #303030;
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 30px;
+}
+.wb-recipe{
+	width: 100%;
+	float: left;
+	padding: 30px 0;
+	border-bottom: 1px solid #dcdcdc;
+}
+.wb-recipe:last-child{
+	border-bottom: 0;
+	padding-bottom: 0;
+}
+.wb-recipe .wb-recipeimg{width: auto;}
+.wb-recipe .wb-recipedetail{
+	width: auto;
+	float: none;
+	overflow: hidden;
+	background: none;
+	position: relative;
+	padding: 0 190px 0 20px;
+}
+.wb-recipehead{
+	width: 100%;
+	float: left;}
+.wb-recipehead .wb-recipename{width: auto;}
+.wb-recipehead .wb-recipename h3{line-height: 18px;}
+.wb-recipehead .wb-postmatadata{width: auto;}
+.wb-recipe .wb-recipedetail .wb-description p span{display: block;}
+.wb-btnactions{
+	top: 0;
+	right: 0;
+	position: absolute;
+}
+.wb-btnactions .wb-btndel{
+	float: right;
+	position: static;
+}
+.wb-btnedit{
+	float: left;
+	padding: 0 30px;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 40px;
+	margin:0 10px 0 0;
+	border-radius: 60px;
+	background: #F7ECEE;
+}
+/*==============================================
+			Social Settings Style								
+==============================================*/
+.wb-formsocialsettings .form-group{
+	margin: 0 0 20px;
+	position: relative;
+}
+.wb-formsocialsettings .form-group label{
+	color: #7F7F7F;
+    font-size: 16px;
+    line-height: 20px;
+}
+.wb-formsocialsettings .form-group.wb-inputwithicon i{
+	top: 32px;
+	right: 20px;
+	height: 45px;
+}
+.wb-formsocialsettings .form-group input{padding: 10px 20px 10px 40px;}
+.wb-formsocialsettings .form-group .wb-signinbtn{
+	width: auto;
+	padding: 0 30px;
+}
+/*==============================================
+			Recipe Detail Style								
+==============================================*/
+.wb-recipedetailpage{
+	width: 100%;
+	float: left;
+}
+.wb-recipedetailimg{
+	width: 100%;
+	float: left;
+	margin: 0 0 0;
+	border-radius: 6px;
+}
+.wb-recipedetailimg img{
+	width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 6px;
+}
+.wb-detailbox{
+	width: 100%;
+	float: left;
+	padding: 30px;
+	background: #fff;
+	border-radius: 0 0 6px 6px;
+	box-shadow: 0 2px 4px 0 rgba(219,219,219,0.5);
+}
+.wb-detailpagecontent{
+	width: 100%;
+	float: left;
+	position: relative;
+}
+.wb-detailpagecontent .wb-detailpagescontent-inner{
+	float: left;
+	padding: 0 0 0 100px;
+}
+.wb-socialshare{
+	top: 0;
+	left:0;
+	position: absolute !important;
+	text-align: center;
+}
+.wb-socialshare .inner-wrapper-sticky{
+	box-shadow: 0 1px 6px 0 rgba(219,219,219,0.58);
+	width: 72px;
+	background: #fff;
+	padding: 15px 16px;
+}
+.wb-followvtwo,
+.wb-chefnamevthree,
+.wb-profileinfovtwo,
+.wb-socialsharevtwo{display: none;}
+.wb-socialsharevtwo h3{float: left;}
+.wb-socialsharevtwo h3,
+.wb-socialshare h3{
+	color: #444;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	text-align: center;
+}
+.wb-socialsharevtwo .wb-socialicons{float: right;}
+.wb-socialsharevtwo .wb-socialicons li,
+.wb-socialshare .wb-socialicons li{padding: 6px 0;}
+.wb-socialsharevtwo .wb-socialicons li a,
+.wb-socialshare .wb-socialicons li a{
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 6px;
+	background: #FFF4F6;
+}
+.wb-socialsharevtwo .wb-socialicons li a i,
+.wb-socialshare .wb-socialicons li a i{
+	width: 40px;
+	height: 40px;
+	font-size: 18px;
+	line-height: 40px;
+}
+.wb-detailpagecontent .wb-recipedetail{padding: 0 0 20px;}
+.wb-detailpagecontent .wb-recipedetail .wb-btnedit{
+	float: right;
+	margin: 0 0 0 10px;
+}
+.wb-btnprint{
+    width: 47px;
+    float: left;
+    height: 40px;
+    color: #7D7D7D;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    background: #f7f7f7;
+    border-radius: 60px;
+}
+.wb-btnprint:hover{color: #7D7D7D;}
+.wb-detailpagecontent .wb-recipedetail .wb-btnedit{padding: 0 26px;}
+.wb-detailpagecontent .wb-recipedetail .wb-btnedit i{margin: 0 5px 0 0;}
+.wb-recipedetail .wb-recipename h3{
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 24px;
+}
+.wb-detailpagecontent .wb-description p{
+	font-size: 18px;
+	margin: 0 0 32px;
+	line-height: 26px;
+}
+.wb-ingredeintsinfo{
+	width: 40%;
+	float: left;
+}
+.wb-ingredeintsinfo h3{
+	color: #0C0C0C;
+	font-size: 16px;
+	font-weight: 600;
+	margin: 0 0 15px;
+	line-height: 20px;
+}
+.wb-ingredeintsinfo ul{
+	width: 100%;
+	float: left;
+	list-style: none;
+}
+.wb-ingredeintsinfo ul li{
+	width: 100%;
+	float: left;
+	line-height: normal;
+	list-style-type: none;
+}
+.wb-ingredeintsinfo ul li + li{padding: 10px 0 0;}
+.wb-ingredeintsinfo ul li em{
+	width: 60px;
+	float: left;
+	color: #525252;
+	font-size: 14px;
+	line-height: 14px;
+	font-style: normal;
+}
+.wb-ingredeintsinfo ul li span{
+	float: left;
+	color: #0C0C0C;
+	display: block;
+	font-size: 14px;
+	line-height: 14px;
+}
+.wb-nutritionfacts{
+	width: 60%;
+	float: left;
+}
+.wb-nutritionfactshead{
+	width: 100%;
+	float: left;
+}
+.wb-nutritionfactshead h3{
+	float: left;
+	color: #0C0C0C;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 16px;
+	margin: 0 40px 0 0;
+}
+.wb-nutritionfactshead span{
+	float: left;
+	color: #0C0C0C;
+	font-size: 12px;
+	line-height: 15px;
+	position: relative;
+	padding: 0 0 0 40px;
+}
+.wb-nutritionfactshead span:before{
+	left:0;
+	top: 6px;
+	content: '';
+	width: 25px;
+	height: 3px;
+	position: absolute;
+	background: #e2e2e2;
+}
+.wb-caloriesbox{
+	width: 100%;
+	float: left;
+	padding: 15px 0 0;
+}
+.wb-chefnamevfour,
+.wb-chefnamevtwo{display: none;}
+.wb-profileinfovthree{
+
+	display: block;
+	width: 60%;
+	overflow: hidden;
+}
+.wb-userskill{overflow:hidden;}
+.wb-skill{
+	float:left;
+	width:100%;
+}
+.wb-skill + .wb-skill{margin:10px 0 0;}
+.wb-skill:hover{ cursor:pointer;}
+.wb-skillname{
+	float:left;
+	width: 50px;
+	color: #0C0C0C;
+	font-size:14px;
+	line-height:14px;
+	text-transform:capitalize;
+}
+.wb-skillname .wb-skillbar span{
+	top:0;
+	right:0;
+	position:absolute;
+}
+.wb-skillbox{
+	overflow:hidden;
+	padding:7px 15px 0;
+}
+.wb-skillholder{
+	width:100%;
+	float:left;
+	background:#ddd;
+}
+.wb-skillbar{
+	height:4px;
+	width: 100%;
+	float:left;
+	position:relative;
+	transition:none;
+}
+.wb-skillpercentage{
+	width: 50px;
+	float:right;
+	display:block;
+	color: #0C0C0C;
+	font-size:14px;
+	line-height:14px;
+}
+
+
+
+.bt-skillgroup{
+	float:left;
+	width:100%;
+}
+.bt-skill{
+	float:left;
+	width:100%;
+	cursor: pointer;
+	position: relative;
+	padding: 10px 80px 10px 80px;
+}
+.bt-skill + .bt-skill{}
+.bt-skill h4{
+	left: 0;
+	top: 3px;
+	margin: 0;
+	color: #0C0C0C;
+	font-size: 14px;
+	line-height: 14px;
+	position: absolute;
+	text-transform: capitalize;
+}
+.bt-skill span{
+	top: 3px;
+	right: 0;
+	width: 50px;
+	color: #0C0C0C;
+	font-size: 14px;
+	line-height: 14px;
+	position: absolute;
+}
+.bt-skillholder{
+	width:100%;
+	float:left;
+	position:relative;
+	border-radius: 5px;
+	background: #e2e2e2;
+}
+.bt-skillbar{
+	height:3px;
+	float:left;
+	background:#fff;
+	transition:none;
+	position:relative;
+}
+
+
+
+
+
+.wb-blendingtimespeed{
+	width: 100%;
+	float: left;
+	padding: 30px 0;
+	list-style: none;
+	margin: 40px 0 40px;
+	border-top: 1px solid #dedede;
+	border-bottom: 1px solid #dedede;
+}
+.wb-blendingtimespeed li{
+	float: left;
+	padding: 0 10px;
+	line-height: normal;
+	list-style-type: none;
+}
+.wb-blendingtimespeed li:first-child{padding-left: 0;}
+.wb-blendingtimespeed li h3{
+	color: #0C0C0C;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 16px;
+}
+.wb-blendingtimespeed li span{
+	color: #303030;
+	font-size: 14px;
+	font-weight: 600;
+}
+.wb-blendingtimespeed li i{margin: 0 10px 0 0;}
+.wb-blendingtimespeed li span em{
+	font-style: normal;
+	font-weight: normal;
+}
+.wb-comments{
+	width: 100%;
+	float: left;
+}
+.wb-comments figure{
+	margin: 0;
+	width: 100%;
+	float: left;
+}
+.wb-comments figure img{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.wb-similerrecipes{
+	width: 100%;
+	float: left;
+	padding: 52px 0 0;
+}
+.wb-sectionhead{
+	width: 100%;
+	float: left;
+	text-align: center;
+}
+.wb-sectionhead h2{
+	color: #000;
+	margin:0 0 25px;
+	font-size: 24px;
+	line-height: 24px;
+}
+/*==============================================
+			Side Bar Style								
+==============================================*/
+.wb-sidebar{
+	width: 100%;
+	float: left;
+}
+.wb-widget{
+	width: 100%;
+	float: left;
+}
+.wb-widget + .wb-widget{margin: 45px 0 0;}
+.wb-widgettitle{
+	width: 100%;
+	float: left;
+	padding: 0 0 25px;
+}
+.wb-widgettitle h2{
+	margin: 0;
+	font-size: 18px;
+	line-height: 22px;
+}
+.wb-widgetcontent{
+	width: 100%;
+	float: left;
+}
+.wb-widget ul{
+	width: 100%;
+	float: left;
+	list-style: none;
+}
+.wb-widget ul li{
+	width: 100%;
+	float: left;
+	padding: 9px 0;
+	list-style-type: none;
+}
+.wb-widget ul li a{
+	color: #5c5c5c;
+	display: block;
+}
+.wb-widgetcatagory ul li{padding: 0;}
+.wb-widgetcatagory ul li a{
+	font-size: 20px;
+	padding: 0 18px;
+	line-height: 40px;
+	border-radius: 100px;
+}
+.wb-widgetcatagory ul li.wb-active a,
+.wb-widgetcatagory ul li:hover a{background: #f6ebee;}
+.wb-widgetsearch{
+	padding: 30px;
+	background: #fff;
+	border-radius: 6px;
+	box-shadow: 0 2px 4px 0 rgba(219,219,219,0.5);
+}
+.wb-widgetsearch .wb-formsearch{margin: 0 0 10px;}
+.wb-widgetsearch .wb-formsearch .form-control{width: 100%;}
+.wb-tags{
+	width: 100%;
+	float: left;
+}
+.wb-tag{
+    height: 40px;
+	margin: 6px 4px 0px 0;
+	padding: 9px 12px;
+	font-size: 14px;
+	background: #ffffff;
+	border-radius:  4px;
+	display: inline-block;
+}
+.wb-tag i{margin: 0 0 0 10px;}
+.wb-widgetcopyrights .wb-widgetcontent{
+	padding: 20px 0 0;
+	border-top: 1px solid #ddd;
+}
+.wb-copyrights{
+	float: left;
+	color: #7F7F7F;
+	line-height: 18px;
+}
+.wb-widgetcontent .wb-postmatadata{
+	width: auto;
+	float: right;
+	padding: 0;
+}
+.wb-widgetcontent .wb-postmatadata li{
+	width: auto;
+	padding: 0 7px;
+}
+.wb-widgetcontent .wb-postmatadata li a{
+	color: #464646;
+	display: block;
+}
+.wb-widgetchefinfo{
+	background: #fff;
+	padding: 40px 45px;
+	text-align: center;
+	border-radius: 6px;
+	box-shadow: 0 2px 4px 0 rgba(219,219,219,0.5);
+}
+.wb-widgetchefinfo .wb-chefnamevtwo{display: none;}
+.wb-widgetchefinfo figure{
+	width: 100px;
+	height: 100px;
+	display: block;
+	border-radius: 50%;
+	margin: 0 auto 20px;
+}
+.wb-widgetchefinfo figure img{
+	width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 50%;
+}
+.wb-widgetchefinfo .wb-chefname {
+	padding: 0 0 11px;
+	text-align: center;
+}
+.wb-widgetchefinfo .wb-chefname h3{
+	margin: 0;
+	float: none;
+}
+.wb-widgetchefinfo .wb-website{
+	padding: 0;
+	color: #444;
+	display: block;
+	font-size: 12px;
+	margin: 0 0 10px;
+	line-height: 14px;
+}
+.wb-widgetchefinfo .wb-description p{margin: 0 0 30px;}
+.wb-btnviewprofile{
+	width: 100%;
+	float: left;
+	color: #797979;
+	display: block;
+	padding: 0 45px;
+	font-weight: 600;
+	line-height: 40px;
+	border-radius: 60px;
+	background: #f4f4f4;
+}
+.wb-btnviewprofile:hover{color: #797979;}
+
+.wb-admindropdown{display: none;}
+#nav-icon1 {
+  width: 76px;
+  height: 70px;
+  overflow: hidden;
+  position: relative;
+  background: #ffffff;
+  margin: -10px 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  border-left: 1px solid #e8e8e8;
+  border-right: 1px solid #e8e8e8;
+}
+
+#nav-icon1 span{
+  left: 24px;
+  opacity: 1;
+  width: 24px;
+  height: 2px;
+  display: block;
+  position: absolute;
+  background: #919191;
+  border-radius: 9px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+#nav-icon1 span:nth-child(1) {
+  top: 25px;
+}
+
+#nav-icon1 span:nth-child(2) {
+  top: 36px;
+}
+
+#nav-icon1 span:nth-child(3) {
+  top: 47px;
+}
+
+#nav-icon1.open span:nth-child(1) {
+  top: 36px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+#nav-icon1.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+#nav-icon1.open span:nth-child(3) {
+  top: 36px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+.wb-lazyload{
+
+    text-align: center;
+}
+.wb-lazyload img{
+    margin-top: 40px;
+}
